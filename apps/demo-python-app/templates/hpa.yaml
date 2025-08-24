@@ -1,15 +1,15 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ .Values.appName }}-{{ $app.appVersion | replace "." "-" }}
+  name: {{ .Values.appName }}-{{ .Values.appVersion | replace "." "-" }}
   namespace: apps
   labels:
-    app: {{ .Values.appName }}-{{ $app.appVersion | replace "." "-" }}
+    app: {{ .Values.appName }}-{{ .Values.appVersion | replace "." "-" }}
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: {{ .Values.appName }}-{{ $app.appVersion | replace "." "-" }}
+    name: {{ .Values.appName }}-{{ .Values.appVersion | replace "." "-" }}
   minReplicas: {{ .Values.minReplicas }}
   maxReplicas: {{ .Values.maxReplicas }}
   metrics:
@@ -19,4 +19,3 @@ spec:
       target:
         type: Utilization
         averageUtilization: 80
-{{ end }}
