@@ -8,6 +8,6 @@ dockerRegistry: docker.io/saarwasserman
 appName: demo-python-app
 namespace: apps
 appVersion: v0.1.12 # {"$imagepolicy": "flux-system:demo-python-app-prod:tag"}
-minReplicas: 2
+minReplicas: 1
 maxReplicas: 3
 port: 8000
